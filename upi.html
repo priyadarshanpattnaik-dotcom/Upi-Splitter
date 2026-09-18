@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI QR Splitter Tool</title>
+    <!-- Link your custom CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>UPI QR Code Splitter</h1>
+        
+        <!-- Input Form -->
+        <div class="form-group no-print">
+            <label for="upiId">Your UPI ID</label>
+            <input type="text" id="upiId" placeholder="example@bank">
+
+            <label for="name">Account Holder Name</label>
+            <input type="text" id="name" placeholder="Your Name">
+
+            <label for="totalAmount">Total Amount to Collect (₹)</label>
+            <input type="number" id="totalAmount" placeholder="Enter amount" min="100" step="100">
+
+            <label for="splitMethod">Split Method</label>
+            <select id="splitMethod" onchange="togglePartsInput()">
+                <option value="max">Max Limit (Up to ₹1,999 per QR, Auto-split)</option>
+                <option value="equal">Equal Parts (Specify number of parts)</option>
+            </select>
+
+            <div id="partsGroup" style="display: none;">
+                <label for="numParts">Number of Parts</label>
+                <input type="number" id="numParts" placeholder="Enter number of parts" min="1">
+            </div>
+
+            <label for="note">Payment Note (Optional)</label>
+            <input type="text" id="note" placeholder="Enter payment note">
+
+            <button onclick="generateQRs()">Generate QR Codes</button>
+        </div>
+
+        <!-- Printable Area Container -->
+        <div id="printableArea"></div>
+    </div>
+
+    <!-- Link your custom JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
